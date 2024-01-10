@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap");
+
+/*NAVBAR*/
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  /* changes background of body color to white */
+  background-color: black;
+}
+nav{
+  height:100px;
+  width:100%;
+  /* changes background color of nav to white */
+  background-color: white;
+}
+
+ul {
+  /* space from the left to add image */
+  margin-left: 60px;
+}
+ul li {
+  /* removed bullets from next to unordered list */
+  list-style: none;
+  /* words float left without space */
+  float: left;
+  /* next to each other */
+  display: inline-block;
+  /* centers the links and list to the middle of nav bar */
+  line-height: 100px;
+
+}
+ul li a {
+  /* Removed underline from text*/
+  text-decoration: none;
+  /* color of text is black */
+  color: black;
+  /* gives space above and below link that are click able */
+  display: block;
+  /* 0px from top and bottom and 20px from left and right of words */
+  padding: 0px 20px;
+  /* changed the font size to 16 px */
+  font-size: 16px;
+  /* set the font to arial */
+  font-family: arial;
+
+}
+
+/* color while hovering over text */
+ul li a:hover {
+  color: aqua;
+}
+
+/* color of text when on that page. So it is the active page that you are on so it is red. like below the page we are on is the home page so its red. you can change anything as you desire */
+ul a.active {
+  color: red;
+}
+
+/* just styling for the text of the body on the page. you can delete this style. */
+h1.color {
+  color: white;
+  text-align: center;
+}
+
+img {
+  margin-top: 25px;
+}
+
+/*END NAVBAR*/
+
+
+:root {
+  --main-light-clr: #f3eed9;
+  --main-medium-clr: #824936;
+  --main-dark-clr: #222c2a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: var(--main-light-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 660px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.12rem;
+  letter-spacing: 10px;
+  text-transform: capitalize;
+  text-align: center;
+  color: var(--main-dark-clr);
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: var(--main-medium-clr);
+  font-size: 3.75rem;
+  text-align: center;
+}
+h1,
+h3 {
+  margin: 0;
+}
+.header__container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1128px;
+}
+
+h2 {
+  color: var(--main-medium-clr);
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+}
+.heading {
+  text-align: center;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.paragraphs {
+  display: flex;
+  gap: 3em;
+  color: var(--main-dark-clr);
+}
+.section {
+  padding: 6em 8em;
+}
+
+.section3-bg-clr {
+  background-color: var(--main-dark-clr);
+}
+.section4-bg-clr {
+  background-color: var(--main-medium-clr);
+}
+
+.section__inner {
+  display: flex;
+  gap: 3em;
+}
+
+.sec-h2-clr,
+.sec-para-clr {
+  color: var(--main-light-clr);
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.section--left,
+.section-right {
+  flex: 1;
+}
+
+/*FOOTER*/
+footer{
+  background-color:#000;
+  padding: 2rem 2rem;
+}
+.f__text{
+  color:#fff;
+  text-align: center;
+  font-size: 16px;
+}
+
