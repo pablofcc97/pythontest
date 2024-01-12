@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import ContactForm
+from .forms import AddressForm
 
 # Create your views here.
 def index(request):
@@ -23,7 +23,7 @@ def tasks(request):
 def contact(request):
     #return HttpResponse('<h1>hola mundo</h1>')
     title = 'CONTACT'
-    contact__Form = ContactForm()
+    contact__Form = AddressForm()
     return render(request, 'contact.html', {
         'title': title,
         'form':  contact__Form

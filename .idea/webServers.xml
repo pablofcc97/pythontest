@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7156eac7-c643-4de8-91c7-c6264cd64f68" name="ERPConection" url="http://192.168.1.19">
+        <fileTransfer rootFolder="/var/www/djangoERP" accessType="SFTP" host="192.168.1.19" port="22" sshConfigId="d11e6df2-160a-4993-ad17-17585d20442f" sshConfig="uloc@192.168.1.19:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
