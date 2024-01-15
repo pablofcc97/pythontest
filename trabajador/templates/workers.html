@@ -1,0 +1,8 @@
+<h1>Trabajadores</h1>
+{% for worker in workers %}
+    <p>
+        <span>{{ worker.name }}</span>
+        <a href="/reporte/{{ worker.id }}" target="_blank">REPORTE</a>
+        <a href="/reporte-test/{{ worker.id }}" target="_blank"> test reporte</a>
+    </p>
+{% endfor %}
