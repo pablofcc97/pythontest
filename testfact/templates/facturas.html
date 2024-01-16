@@ -1,0 +1,8 @@
+<h1>Facturas</h1>
+{% for factura in facturas %}
+    <p>
+        <span>{{ factura.nroFact }}</span>
+        <a href="/facturas/reporte/{{ factura.id }}" target="_blank">REPORTE</a>
+        <a href="/facturas/reporte-test/{{ factura.id }}" target="_blank"> test reporte</a>
+    </p>
+{% endfor %}

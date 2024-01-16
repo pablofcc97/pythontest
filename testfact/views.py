@@ -1,8 +1,10 @@
-from pydoc import doc
+from django.shortcuts import render
+
+# Create your views here.
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Movements, Worker
+from .models import Factura, Producto
 from django.shortcuts import get_object_or_404
 
 from django.conf import settings
@@ -12,40 +14,26 @@ import tempfile
 
 
 # Create your views here.
-def asistencias(request, id):
-    worker = Worker.objects.get(id=id)
-    get_object_or_404(Worker, id=id)
+def factura(request, id):
+    factura = Factura.objects.get(id=id)
+    get_object_or_404(Factura, id=id)
     return render(request, 'asistencia.html', {
-        'worker': worker
+        'factura': factura
     })
-def trabajadores(request):
-    workers = Worker.objects.all()
-    return render(request, 'workers.html', {
-        'workers': workers
-    })
-
-def tasks(request):
-    #return HttpResponse('<h1>hola mundo</h1>')
-    title = 'TASKS'
-    return render(request, 'tasks.html', {
-        'title': title
+def facturas(request):
+    facturas = Factura.objects.all()
+    return render(request, 'facturas.html', {
+        'facturas': facturas
     })
 
-def projects(request):
-    #return HttpResponse('<h1>hola mundo</h1>')
-    title = 'Projects'
-    return render(request, 'projects.html', {
-        'title': title
-    })
 
 def generar_pdf(request,id):
     # Datos de la plantilla html
-    movements = Movements.objects.filter(worker_id=id)
-    worker = Worker.objects.get(id=id)
+    factura = Factura.objects.get(id=id)
+    productos = Producto.objects.filter(factura_id=id)
 
     datos = {
-        'movements': movements,
-        'worker': worker
+        'factura': factura
     }
 
     # Renderizar el contenido HTML utilizando la plantilla y los datos
@@ -73,9 +61,9 @@ def generar_pdf(request,id):
     return response
 
 def reporteTest(request, id):
-    movements = Movements.objects.filter(worker_id=id)
-    worker = Worker.objects.get(id=id)
-    return render(request, 'layouts/pdf.html', {
-        'worker': worker,
-        'movements': movements
+    factura = Factura.objects.get(id=id)
+    productos = Producto.objects.filter(factura_id=id)
+    return render(request, 'layouts/factpdf.html', {
+        'factura': factura,
+        'productos': productos
     })
