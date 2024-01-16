@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'trabajador',
-    'testfact'
+    'testfact',
+    'wkhtmltopdf',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"

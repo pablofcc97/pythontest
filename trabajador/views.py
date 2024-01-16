@@ -11,6 +11,13 @@ import pdfkit
 import tempfile
 
 
+#wkhtltopdf
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Movements, Worker
+
+
+
 # Create your views here.
 def asistencias(request, id):
     worker = Worker.objects.get(id=id)

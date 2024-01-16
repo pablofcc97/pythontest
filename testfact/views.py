@@ -12,6 +12,16 @@ import os
 import pdfkit
 import tempfile
 
+#wkhtmltopdf
+from django.http import HttpResponse
+from django.shortcuts import render
+from .models import Factura, Producto
+from django.shortcuts import get_object_or_404
+from django.template.loader import render_to_string
+from django.conf import settings
+import tempfile
+import subprocess
+
 
 # Create your views here.
 def factura(request, id):
@@ -27,36 +37,42 @@ def facturas(request):
     })
 
 
-def generar_pdf(request,id):
-    # Datos de la plantilla html
+def generar_pdf(request, id):
     factura = Factura.objects.get(id=id)
     productos = Producto.objects.filter(factura_id=id)
 
     datos = {
-        'factura': factura
+        'factura': factura,
+        'productos': productos
     }
 
     # Renderizar el contenido HTML utilizando la plantilla y los datos
     html_template = 'layouts/factpdf.html'
-    html = render(request, html_template, datos).content.decode('utf-8')
+    html = render_to_string(html_template, datos)
 
-    # Configuración para el PDF, refrencia a la ruta del ejecutable wkhtmltopdf
-    configuracion_pdf = pdfkit.configuration(wkhtmltopdf=settings.WKHTMLTOPDF_PATH)
+    # Crear un archivo temporal para el HTML
+    temp_html = tempfile.NamedTemporaryFile(delete=False, suffix=".html")
+    temp_html.write(html.encode('utf-8'))
+    temp_html.close()
 
-    opciones_pdfkit = {
-        'page-size': 'A4',
-        'encoding': 'utf-8',
+    # Configuración para el PDF
+    output_pdf = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+    output_pdf.close()
 
-    }
-    # Generar el PDF
-    pdf = pdfkit.from_string(html, False, configuration=configuracion_pdf)
+    # Ejecutar wkhtmltopdf para convertir HTML a PDF
+    subprocess.run([settings.WKHTMLTOPDF_PATH, temp_html.name, output_pdf.name])
+
+    # Leer el contenido del PDF generado
+    with open(output_pdf.name, 'rb') as pdf_file:
+        pdf_content = pdf_file.read()
 
     # Responder con el PDF
-    response = HttpResponse(pdf, content_type='application/pdf')
+    response = HttpResponse(pdf_content, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename=mi_pdf.pdf'
 
-    #DESCARGAR DEFRENTE EL PDF
-    #response['Content-Disposition'] = f'attachment; filename="example.pdf"'
+    # Eliminar archivos temporales
+    os.unlink(temp_html.name)
+    os.unlink(output_pdf.name)
 
     return response
 

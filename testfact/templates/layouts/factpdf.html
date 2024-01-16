@@ -1423,15 +1423,7 @@
 </head>
 
 <body>
-<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
-<!--La siguiente informaci�n se gener� mediante el Asistente para publicar como
-p�gina web de Microsoft Excel.-->
-<!--Si se vuelve a publicar el mismo elemento desde Excel, se reemplazar� toda
-la informaci�n comprendida entre las etiquetas DIV.-->
-<!----------------------------->
-<!--INICIO DE LOS RESULTADOS DEL ASISTENTE PARA PUBLICAR COMO P�GINA WEB DE
-EXCEL -->
-<!----------------------------->
+
 
 <div id="Libro1_22892" align=center x:publishsource="Excel">
 
@@ -1557,67 +1549,18 @@ EXCEL -->
   <td class=xl9422892>ICBPER</td>
  </tr>
 
-    {% for producto in productos %}
-         <tr height=19 style='height:14.4pt'>
-          <td height=19 class=xl9522892 style='height:14.4pt'>{{ producto.cantprod }}</td>
-          <td class=xl9522892 style='border-left:none'>{{ producto.undProd }}</td>
-          <td class=xl9522892 style='border-left:none'>{{ producto.codProd }}</td>
-          <td class=xl9522892 style='border-left:none'>{{ producto.codCliProd }}</td>
-          <td colspan=4 class=xl9622892 style='border-right:.5pt solid black;
-          border-left:none'>{{ producto.descripcion }}</td>
-          <td class=xl9522892 style='border-left:none'>{{ producto.puProd }}</td>
-          <td class=xl6922892>{{ producto.icbperProd }}</td>
-         </tr>
-    {% endfor %}
+{% for producto in productos %}
+     <tr height=19 style='height:14.4pt'>
+      <td height=19 class=xl9522892 style='height:14.4pt'>{{ producto.cantprod }}</td>
+      <td class=xl9522892 style='border-left:none'>{{ producto.undProd }}</td>
+      <td class=xl9522892 style='border-left:none'>{{ producto.codProd }}</td>
+      <td class=xl9522892 style='border-left:none'>{{ producto.codCliProd }}</td>
+      <td colspan=4 class=xl9622892 style='border-right:.5pt solid black; border-left:none'>{{ producto.descripcion }}</td>
+      <td class=xl9522892 style='border-left:none'>{{ producto.puProd }}</td>
+      <td class=xl6922892>{{ producto.icbperProd }}</td>
+     </tr>
+{% endfor %}
 
- <tr height=19 style='height:14.4pt'>
-  <td height=19 class=xl9722892 style='height:14.4pt'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9822892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9922892></td>
-  <td class=xl9922892></td>
-  <td class=xl10022892>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl10022892>&nbsp;</td>
- </tr>
- <tr height=19 style='height:14.4pt'>
-  <td height=19 class=xl9722892 style='height:14.4pt'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9822892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9922892></td>
-  <td class=xl9922892></td>
-  <td class=xl10022892>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl10022892>&nbsp;</td>
- </tr>
- <tr height=19 style='height:14.4pt'>
-  <td height=19 class=xl9722892 style='height:14.4pt'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9822892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9922892></td>
-  <td class=xl9922892></td>
-  <td class=xl10022892>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl10022892>&nbsp;</td>
- </tr>
- <tr height=19 style='height:14.4pt'>
-  <td height=19 class=xl9722892 style='height:14.4pt'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9822892 style='border-left:none'>&nbsp;</td>
-  <td class=xl9922892></td>
-  <td class=xl9922892></td>
-  <td class=xl10022892>&nbsp;</td>
-  <td class=xl9722892 style='border-left:none'>&nbsp;</td>
-  <td class=xl10022892>&nbsp;</td>
- </tr>
  <tr height=19 style='height:14.4pt'>
   <td height=19 class=xl10122892 style='height:14.4pt'>&nbsp;</td>
   <td class=xl10122892 style='border-left:none'>&nbsp;</td>
